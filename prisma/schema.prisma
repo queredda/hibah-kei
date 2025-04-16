@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("rt")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model KartuKeluarga {
+  id              String            @id @default(auto()) @map("_id") @db.ObjectId
+  noKK            String            @unique
+  namaKepalaKeluarga String
+  alamat          String
+  rt              String
+  rw              String
+  desa            String
+  kecamatan       String
+  kabupaten       String
+  kodePos         String
+  provinsi        String
+  anggotaKeluarga AnggotaKeluarga[]
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}
+
+model AnggotaKeluarga {
+  id                  String        @id @default(auto()) @map("_id") @db.ObjectId
+  kartuKeluargaId     String        @db.ObjectId
+  kartuKeluarga       KartuKeluarga @relation(fields: [kartuKeluargaId], references: [id], onDelete: Cascade)
+  nik                 String        @unique
+  namaLengkap         String
+  jenisKelamin        String
+  tempatLahir         String
+  tanggalLahir        DateTime
+  agama               String
+  pendidikan          String
+  jenisPekerjaan      String
+  statusPerkawinan    String
+  statusHubungan      String
+  kewarganegaraan     String
+  noPaspor            String?
+  noKitasKitap        String?
+  namaAyah            String
+  namaIbu             String
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+}
