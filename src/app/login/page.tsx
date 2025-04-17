@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { authOptions } from '@/lib/auth';
 import { LoginForm } from '@/components/login-form';
@@ -21,6 +22,20 @@ export default async function LoginPage() {
   return (
     <div className="flex min-h-screen w-full items-center justify-center px-4 py-12">
       <div className="mx-auto w-full max-w-sm space-y-6 sm:max-w-md">
+        <div className="flex justify-center gap-6 mb-4">
+          <Image 
+            src="/images/ugm.png" 
+            alt="Universitas Gadjah Mada" 
+            width={80} 
+            height={80}
+          />
+          <Image 
+            src="/images/maluku.png" 
+            alt="Maluku" 
+            width={80} 
+            height={80}
+          />
+        </div>
         <div className="flex flex-col space-y-2 text-center">
           <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             Login

@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import { authOptions } from '@/lib/auth';
 import { SignUpForm } from '@/components/signup-form';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Sign Up',
@@ -22,6 +23,20 @@ export default async function SignUpPage() {
     <div className="flex min-h-screen w-full items-center justify-center px-4 py-12">
       <div className="mx-auto w-full max-w-sm space-y-6 sm:max-w-md">
         <div className="flex flex-col space-y-2 text-center">
+          <div className="flex justify-center gap-6 mb-4">
+            <Image
+              src="/images/ugm.png"
+              alt="Universitas Gadjah Mada"
+              width={80}
+              height={80}
+            />
+            <Image
+              src="/images/maluku.png"
+              alt="Maluku"
+              width={80}
+              height={80}
+            />
+          </div>
           <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             Buat Akun
           </h1>
