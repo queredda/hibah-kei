@@ -9,7 +9,7 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Sistem Manajemen Kartu Keluarga",
+  title: "Sistem Informasi Penduduk Desa",
   description: "Aplikasi untuk mengelola data Kartu Keluarga",
 }
 
